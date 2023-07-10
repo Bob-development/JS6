@@ -1,10 +1,5 @@
 'use strict'
-// TASK 1
-// let isRunning = true;
-// let userTransferOfCarrency;
-// let userQuantityOfMoney;
-
-let isCorrectName = true;
+let isCorrectName = false;
 let userName;
 
 let isRunning = false;
@@ -12,17 +7,13 @@ let operation;
 
 let usersDB = [];
 
-const userDB = {
-
-}
-
 while (!isRunning) {
     getUserName();
     greeting();
 
     switch (operation.toLowerCase()) {
         case 'a':
-            if (userDB.cardNum == undefined){
+            if (usersDB[0] == undefined){
                 console.log("DB is empty...");
                 continue;
             }
@@ -46,6 +37,9 @@ while (!isRunning) {
 
 function takeCard() {
     let isCorrectNumber = false;
+    const userDB = {
+
+    }
 
     while (!isCorrectNumber){
         let cardNum = prompt("Enter ur card number:")
@@ -77,11 +71,7 @@ function takeCard() {
             isCorrectCvv = true;
         }
     }
-
-    // for (let i = 0; ; i++){
-        // usersDB[i] = userDB;
-    //     break;
-    // }
+    
     usersDB.push(userDB);
 }
 
@@ -90,14 +80,14 @@ function greeting() {
 }
 
 function getUserName() {
-    while (isCorrectName){
+    while (!isCorrectName){
         userName = prompt("Enter ur name here: ");
         
         if (userName.length < 2){
             alert("Enter ur name corectly, idiot");
         } 
         else{
-            isCorrectName = false;
+            isCorrectName = true;
         }
     }
 }
